@@ -25,4 +25,7 @@ $app->get('/users', ['middleware' => 'auth', function (Request $request) {
 
 }]);
 
-$app->get('/', 'ApplicationsController@getLogin');
+//Apps
+$app->get('/apps/create', 'AppsController@create');
+$app->post('/apps/store', 'AppsController@store');
+$app->get('/apps', 'AppsController@index');

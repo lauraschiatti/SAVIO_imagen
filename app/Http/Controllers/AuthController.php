@@ -14,7 +14,7 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        //return $request::all();
+        //return $request->all();
 
         $username = trim($request->input('username'));
         $pass = $request->input('password');

@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/login.css" rel="stylesheet">
+    <link href=" /css/login.css" rel="stylesheet" type="text/css"/>
 
     <!-- Google Fonts -->
     <link href='//fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>

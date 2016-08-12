@@ -55,9 +55,11 @@ class AppsController extends Controller
                 return redirect('apps');
 
             }else{
-                return $app;
+                //PHP session management
+                /*session_start();
 
-                return redirect('apps/create');//->with('error', 'error');
+                $_SESSION['error'] = "error";*/
+                return redirect('apps/create');
             }
         }else{
             abort(404);
@@ -91,7 +93,7 @@ class AppsController extends Controller
      */
     public function update($id)
     {
-        dd($id); 
+        dd($id);
         /*$unit =  trim(Input::get('unit'));
         $type = trim(Input::get('type'));
 

@@ -12,7 +12,7 @@
 */
 
 // Authentication routes
-$app->get('/', 'AuthController@getLogin');
+//$app->get('/', 'AuthController@getLogin');
 $app->post('/', 'AuthController@postLogin');
 $app->get('/logout', 'AuthController@getLogout');
 
@@ -25,13 +25,16 @@ $app->get('/users', ['middleware' => 'auth', function (Request $request) {
 
 }]);
 
+
 //Apps
-$app->get('/apps/create', 'AppsController@create');
-$app->post('/apps/store', 'AppsController@store');
+$app->group(['prefix' => 'apps', 'namespace' => 'App\Http\Controllers'], function () use ($app) {
+  $app->get('create', 'AppsController@create');
+  $app->post('store', 'AppsController@store');
 
-$app->get('/apps', 'AppsController@index');
+  $app->get('/', 'AppsController@index');
 
-$app->post('/apps/{id}', 'AppsController@destroy');
+  $app->post('{id}', 'AppsController@destroy');
 
-$app->get('/apps/{id}/edit', 'AppsController@edit');
-$app->post('/apps/{id}/update', 'AppsController@update');
+  $app->get('{id}/edit', 'AppsController@edit');
+  $app->post('{id}/update', 'AppsController@update');
+});

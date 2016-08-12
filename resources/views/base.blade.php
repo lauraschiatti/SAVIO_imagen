@@ -3,15 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SAVIO imagen - @yield('title')</title>        <meta name="description" content="">
+        <title>@yield('title')</title>
+        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">-->
+        <link href="/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Google Fonts -->
         <link href='//fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+        <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
     </head>
     <body>
 
@@ -45,7 +48,11 @@
                         </li>-->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                        <li><a href="#">
+                                <i class="glyphicon glyphicon-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -53,6 +60,6 @@
 
         @yield('content')
 
-        <!--<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>-->
+        <script src="/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>

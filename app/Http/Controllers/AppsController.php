@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Apps;
+use Illuminate\Support\Facades\Input;
 
 class AppsController extends Controller
 {
@@ -65,23 +66,6 @@ class AppsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        /*$sensor = Sensors::where("id", "=", $id)->first();
-
-        if($sensor) {
-            return view('sensors.show', compact('sensor'));
-        }else{
-            abort(404);
-        }*/
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -89,10 +73,10 @@ class AppsController extends Controller
      */
     public function edit($id)
     {
-        $sensor = Sensors::where("id", "=", $id)->first();
+        $app = Apps::find($id);
 
-        if($sensor){
-            return view('sensors.edit',compact('sensor'));
+        if($app){
+            return view('apps.edit',compact('app'));
         }else{
             return abort(404);
         }
@@ -107,7 +91,8 @@ class AppsController extends Controller
      */
     public function update($id)
     {
-        $unit =  trim(Input::get('unit'));
+        dd($id); 
+        /*$unit =  trim(Input::get('unit'));
         $type = trim(Input::get('type'));
 
         $sensor = Sensors::where("type", "=", $type)
@@ -120,7 +105,7 @@ class AppsController extends Controller
             return redirect('sensors');
         }else{
             return redirect()->back()->with('error', ' TYPE-UNIT COMBINATION ALREADY EXISTS');
-        }
+        }*/
     }
 
     /**
@@ -129,10 +114,12 @@ class AppsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        Sensors::find($id)->delete();
-        return redirect('sensors');
+        $app = Apps::find($id)->delete();
+
+        return redirect('apps');
+
     }
 
     function generateHash($len){

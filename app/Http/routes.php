@@ -28,4 +28,10 @@ $app->get('/users', ['middleware' => 'auth', function (Request $request) {
 //Apps
 $app->get('/apps/create', 'AppsController@create');
 $app->post('/apps/store', 'AppsController@store');
+
 $app->get('/apps', 'AppsController@index');
+
+$app->post('/apps/{id}', 'AppsController@destroy');
+
+$app->get('/apps/{id}/edit', 'AppsController@edit');
+$app->post('/apps/{id}/update', 'AppsController@update');

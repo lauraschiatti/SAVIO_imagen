@@ -103,6 +103,7 @@ class AppsController extends Controller
             $app = Apps::find($id);
             $name = $request->input('name');
 
+<<<<<<< HEAD
             if($app) {
                 $app->name = $name;
 
@@ -111,6 +112,17 @@ class AppsController extends Controller
 
             return redirect('/apps');
 
+=======
+            if($app){
+                $app->name = $name;
+
+                $app->save();
+
+                return Apps::find($id);
+            }else{
+                redirect('/apps');
+            }
+>>>>>>> 35ec97d
         }else{
             abort(405);
         }

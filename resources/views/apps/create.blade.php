@@ -14,15 +14,26 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="form-area">
                     <form method="post" action="/apps/store">
+
                         <div class="alert alert-danger" role="alert">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                             <span class="sr-only">Error:</span>
-                            Enter a valid email address
+                            Error
                         </div>
 
                         <div class="form-group">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
                         </div>
+                        {{--@if($app)
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" value="{{ $app->name }}" required>
+                            </div>
+                        @else
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                            </div>
+                        @endif--}}
+
                         <button type="submit" class="btn btn-primary pull-right">Guardar</button>
                     </form>
                 </div>

@@ -12,7 +12,7 @@
 */
 
 // Authentication routes
-//$app->get('/', 'AuthController@getLogin');
+$app->get('/', 'AuthController@getLogin');
 $app->post('/', 'AuthController@postLogin');
 $app->get('/logout', 'AuthController@getLogout');
 
@@ -33,8 +33,7 @@ $app->group(['prefix' => 'apps', 'namespace' => 'App\Http\Controllers'], functio
 
   $app->get('/', 'AppsController@index');
 
-  $app->post('{id}', 'AppsController@destroy');
-
   $app->get('{id}/edit', 'AppsController@edit');
   $app->post('{id}/update', 'AppsController@update');
+  $app->post('{id}', 'AppsController@destroy');
 });

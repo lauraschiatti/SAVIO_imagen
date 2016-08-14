@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Apps;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+
 
 class AppsController extends Controller
 {
@@ -31,7 +32,13 @@ class AppsController extends Controller
      */
     public function create()
     {
-        return view('apps.create');
+        /*$error = 'hola';
+
+        if (session()->has('users')) {
+            $error = session('error');
+        }*/
+
+        return view('apps.create');//, compact('error'));
     }
 
     /**
@@ -41,6 +48,8 @@ class AppsController extends Controller
      */
     public function store(Request $request)
     {
+        $error = null;
+
         if ($request->isMethod('post')) {
             $name = $request->input('name');
 
@@ -55,11 +64,8 @@ class AppsController extends Controller
                 return redirect('apps');
 
             }else{
-                //PHP session management
-                /*session_start();
-
-                $_SESSION['error'] = "error";*/
                 return redirect('apps/create');
+                //Redirect::back()->with('message', 'message|Record updated.');
             }
         }else{
             abort(404);
@@ -80,7 +86,7 @@ class AppsController extends Controller
         if($app){
             return view('apps.edit',compact('app'));
         }else{
-            return abort(404);
+            return view('errors.404');
         }
 
     }
@@ -91,23 +97,23 @@ class AppsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        dd($id);
-        /*$unit =  trim(Input::get('unit'));
-        $type = trim(Input::get('type'));
+        if ($request->isMethod('post')) {
+            $app = Apps::find($id);
+            $name = $request->input('name');
 
-        $sensor = Sensors::where("type", "=", $type)
-            ->Where("unit", "=", $unit)
-            ->Where("id", "!=", $id)
-            ->first();
+            if($app) {
+                $app->name = $name;
 
-        if($sensor == null){
-            Sensors::where('id', '=', $id)->update(['type' => $type, 'unit' => $unit]);
-            return redirect('sensors');
+                $app->save();
+            }
+
+            return redirect('/apps');
+
         }else{
-            return redirect()->back()->with('error', ' TYPE-UNIT COMBINATION ALREADY EXISTS');
-        }*/
+            abort(405);
+        }
     }
 
     /**

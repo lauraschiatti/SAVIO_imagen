@@ -102,7 +102,7 @@ class AppsController extends Controller
         if ($request->isMethod('post')) {
             $app = Apps::find($id);
             $name = $request->input('name');
-
+            
             if($app) {
                 $app->name = $name;
 

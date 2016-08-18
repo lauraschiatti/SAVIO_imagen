@@ -11,7 +11,7 @@ $hash = optional_param('hash', null ,PARAM_TEXT);
 $PAGE->set_url('/userpix/savioimg/index.php', array('username' => $username, 'hash' => $hash));
 
 //Check app hash using SAVIO_img app
-$json = file_get_contents('http://localhost:8080/apps/hash/'.$hash); // http request
+$json = file_get_contents('http://profileimg.utbvirtual.edu.co/apps/hash/'.$hash); // http request
 $data = json_decode($json);
 
 if($data == "true"){

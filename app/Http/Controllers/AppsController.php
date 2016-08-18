@@ -32,12 +32,6 @@ class AppsController extends Controller
      */
     public function create()
     {
-        /*$error = 'hola';
-
-        if (session()->has('users')) {
-            $error = session('error');
-        }*/
-
         return view('apps.create');//, compact('error'));
     }
 

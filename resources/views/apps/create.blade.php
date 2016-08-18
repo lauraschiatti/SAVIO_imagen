@@ -15,11 +15,11 @@
                 <div class="form-area">
                     <form method="post" action="/apps/store">
 
-                        <div class="alert alert-danger" role="alert">
+                        <!--<div class="alert alert-danger" role="alert">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                             <span class="sr-only">Error:</span>
                             Error
-                        </div>
+                        </div>-->
 
                         <div class="form-group">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>

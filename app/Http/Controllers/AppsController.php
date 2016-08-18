@@ -110,7 +110,6 @@ class AppsController extends Controller
             }
 
             return redirect('/apps');
-
         }else{
             abort(405);
         }

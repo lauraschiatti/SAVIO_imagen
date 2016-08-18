@@ -14,11 +14,11 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="form-area">
                     <form method="post" action="/apps/{{$app->id}}/update">
-                        <div class="alert alert-danger" role="alert">
+                        <!--<div class="alert alert-danger" role="alert">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                             <span class="sr-only">Error:</span>
                             Enter a valid email address
-                        </div>
+                        </div>-->
 
                         <div class="form-group">
                             <input type="text" class="form-control" id="name" name="name" value="{{ $app->name }}" required>
@@ -34,4 +34,3 @@
         </div>
     </div>
 @stop
-

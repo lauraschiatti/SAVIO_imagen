@@ -102,7 +102,7 @@ class AppsController extends Controller
         if ($request->isMethod('post')) {
             $app = Apps::find($id);
             $name = $request->input('name');
-            
+
             if($app) {
                 $app->name = $name;
 
@@ -122,13 +122,25 @@ class AppsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id, Request $request)
+    public function destroy(Request $request, $id)
     {
         $app = Apps::find($id)->delete();
 
         return redirect('apps');
 
     }
+
+    public function checkExistingApp($hash){
+       $app = Apps::where("hash", "=" ,$hash)->first();
+
+        if(!$app){
+            return json_encode("false");
+
+        }else{
+            return json_encode("true");
+        }
+    }
+
 
     function generateHash($len){
         //String

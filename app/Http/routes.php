@@ -36,4 +36,6 @@ $app->group(['prefix' => 'apps', 'namespace' => 'App\Http\Controllers'], functio
   $app->get('{id}/edit', 'AppsController@edit');
   $app->post('{id}/update', 'AppsController@update');
   $app->post('{id}', 'AppsController@destroy');
+
+  $app->get('hash/{hash}', 'AppsController@checkExistingApp');
 });
